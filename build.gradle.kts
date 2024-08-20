@@ -18,14 +18,14 @@ subs {
             incrementLayer(99)
         }
         
-        if (propertyExists("OP")) {
+        if (propertyExists("OP_name")) {
             from(get("OP")) {
                 syncSourceLine("sync")
                 syncTargetLine("opsync")
             }
         }
 
-        if (propertyExists("ED")) {
+        if (propertyExists("ED_name")) {
             from(get("ED")) {
                 syncSourceLine("sync")
                 syncTargetLine("edsync")
@@ -43,8 +43,6 @@ subs {
             title = get("group_full").get()
             scaledBorderAndShadow = true
         }
-
-        out(get("mergedname"))
     }
 
     chapters {
